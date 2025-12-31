@@ -45,7 +45,7 @@ pip install gradio openai
 python app.py
 ```
 
-The application will start and open in your browser at `http://127.0.0.1:7860` (or another port if 7860 is busy).
+The application will start and display a URL in your terminal (e.g., `http://127.0.0.1:7860`). Gradio will automatically use the next available port if the default port 7860 is already in use. Open the URL shown in your terminal in your browser.
 
 ## How It Works
 
