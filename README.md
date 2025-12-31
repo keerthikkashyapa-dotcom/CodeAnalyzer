@@ -37,30 +37,7 @@ pip install gradio openai
 ### Step 2: Get Your HuggingFace API Token
 
 1. Go to [HuggingFace tokens](https://huggingface.co/settings/tokens) and generate an API token.
-2. Create a `.env` file in the project root directory with your token:
-
-```
-HF_TOKEN=your_huggingface_token
-```
-
-**Note:** Make sure the `.env` file is in the same directory as `app.py`.
-
-**Alternative - Set as environment variable:**
-
-**For Linux/Mac:**
-```bash
-export HF_TOKEN="your_huggingface_token"
-```
-
-**For Windows (PowerShell):**
-```powershell
-$env:HF_TOKEN="your_huggingface_token"
-```
-
-**For Windows (CMD):**
-```cmd
-set HF_TOKEN=your_huggingface_token
-```
+2. You'll enter this token directly in the web interface when using the app.
 
 ### Step 3: Run the Application
 
@@ -80,32 +57,24 @@ The application will start and open in your browser at `http://127.0.0.1:7860` (
 
 ## Usage
 
-1. Paste your code into the input box
-2. Click "Submit" or press Enter
-3. View the line-by-line explanations in the output box
+1. Enter your HuggingFace API token in the "HuggingFace API Token" field (the token is masked for security)
+2. Paste your code into the code input box
+3. Click "Submit" or press Enter
+4. View the line-by-line explanations in the output box
+
+**Note:** Your API token is only used for the API calls and is not stored anywhere.
 
 ## Notes
 
 - Empty lines are skipped in the explanation
 - The app handles errors gracefully
-- Make sure your HF_TOKEN is set in the `.env` file before running the app locally
-- If you encounter API endpoint errors, you may need to check HuggingFace documentation for the correct OpenAI-compatible endpoint URL
-- The `.env` file is automatically ignored by Git (see `.gitignore`)
+- No need to set up environment variables or `.env` files - just enter your API token in the UI
+- Your API token is entered securely (password field) and only used for API calls
+- If you encounter API endpoint errors, check HuggingFace documentation for the correct endpoint URL
 
 ## Deploying to HuggingFace Spaces
 
-If you're deploying this to HuggingFace Spaces:
-
-1. **Set the HF_TOKEN as a Secret (REQUIRED):**
-   - Go to your Space settings (click the gear icon ⚙️ in your Space)
-   - Navigate to the **"Variables and secrets"** tab
-   - Click **"New secret"**
-   - **Name:** `HF_TOKEN` (exactly as shown, case-sensitive)
-   - **Value:** Your HuggingFace API token (get it from [HuggingFace tokens](https://huggingface.co/settings/tokens))
-   - Click **"Add secret"**
-   - The app will automatically use this environment variable
-
-2. **The README.md already includes the required configuration** for HuggingFace Spaces (see the YAML frontmatter at the top)
-
-3. **Important:** The app will load successfully even without the token, but you'll see a helpful error message when you try to use it if the token is not set.
+1. **The README.md already includes the required configuration** for HuggingFace Spaces (see the YAML frontmatter at the top)
+2. **No secrets needed!** Users can enter their own HuggingFace API tokens directly in the web interface
+3. Simply push your code to a HuggingFace Space and it will work immediately
 
